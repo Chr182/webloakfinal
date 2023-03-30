@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        var kardus = 0
+        var kayu = 0
+        var kaleng = 0
+        var aqua = 0
+        var kardusada = false
+        var kayuada = false
+        var kalengada = false
+        var aquaada = false
+
+        function kardusplus() {
+            if (kardusada == false) {
+                kardus = 1
+                document.getElementById("strukcontainer").innerHTML +='<div class="cartslide" id="slidekardus"><h3 class="cartfont" id="textkardus">Dus Kardus bekas x</h3><h3 class="cartfont" id="textkardus" style="margin-left:0px"></h3><h4 style="display:inline-block; margin-left:660px;">Rp.</h4><h4 style="display:inline-block;" id="totalrpkardus">1500</h4><button class="cartbutton" onclick="deletedetect(x=4)"">Delete</button></div>'
+                document.getElementById("textkardus").innerText =  "Dus Kardus bekas x" + String(kardus)
+                kardusada = true
+            }
+            else if (kardusada == true) {
+                var old = kardus
+                kardus = parseInt(old) + 1
+                document.getElementById("textkardus").innerText = "Dus Kardus bekas x" + String(kardus)
+                var rupiah = parseInt(kardus) * 1500
+                document.getElementById("totalrpkardus").innerText = String(rupiah)
+            }
+            update()
+        }
+        function kayuplus() {
+            if (kayuada == false) {
+                kayu = 1
+                document.getElementById("strukcontainer").innerHTML +='<div class="cartslide" id="slidekayu"><h3 class="cartfont">Limbah Kayu Bakar 1kg x</h3><h3 class="cartfont" id="textkayu" style="margin-left:0px">1</h3><h4 style="display:inline-block; margin-left:595px;">Rp.</h4><h4 style="display:inline-block;" id="totalrpkayu">5000</h4><button class="cartbutton" onclick="deletedetect(x=2)">Delete</button></div>'
+                document.getElementById("textkayu").innerText = String(kayu)
+                kayuada = true
+            }
+            else if (kayuada == true) {
+                var old = kayu
+                kayu = parseInt(old) + 1
+                document.getElementById("textkayu").innerText = String(kayu)
+                var rupiah = parseInt(kayu) * 5000
+                document.getElementById("totalrpkayu").innerText = String(rupiah)
+            }
+            update()
+        }
+        function kalengplus() {
+            if (kalengada == false) {
+                kaleng = 1
+                document.getElementById("strukcontainer").innerHTML +='<div class="cartslide" id="slidekaleng"><h3 class="cartfont">Kaleng Bekas 1pcs x</h3><h3 class="cartfont" id="textkaleng" style="margin-left:0px">1</h3><h4 style="display:inline-block; margin-left:653px;">Rp.</h4><h4 style="display:inline-block;" id="totalrpkaleng">1250</h4><button class="cartbutton" onclick="deletedetect(x=1)">Delete</button></div>'
+                document.getElementById("textkaleng").innerText = String(kaleng)
+                kalengada = true
+            }
+            else if (kalengada == true) {
+                var old = kaleng
+                kaleng = parseInt(old) + 1
+                document.getElementById("textkaleng").innerText = String(kaleng)
+                var rupiah = parseInt(kaleng) * 1250
+                document.getElementById("totalrpkaleng").innerText = String(rupiah)
+            }
+            update()
+        }
+        function aquaplus() {
+            if (aquaada == false) {
+                aqua = 1
+                document.getElementById("strukcontainer").innerHTML +='<div class="cartslide" id="slideaqua"><h3 class="cartfont">Botol Aqua Bekas 1.5L x</h3><h3 class="cartfont" id="textaqua" style="margin-left:0px">1</h3><h4 style="display:inline-block; margin-left:600px;">Rp.</h4><h4 style="display:inline-block;" id="totalrpaqua">11000</h4><button class="cartbutton" onclick="deletedetect(x=3)">Delete</button></div>'
+                document.getElementById("textaqua").innerText = String(aqua)
+                aquaada = true
+            }
+            else if (aquaada == true) {
+                var old = aqua
+                aqua = parseInt(old) + 1
+                document.getElementById("textaqua").innerText = String(aqua)
+                var rupiah = parseInt(aqua) * 11000
+                document.getElementById("totalrpaqua").innerText = String(rupiah)
+            }
+            update()
+        }
+        function deletedetect(x) {
+            if (x == 1) {
+                deleteslide(x = "slidekaleng")
+                kalengada = false
+                kaleng = 0
+            }
+            if (x == 2) {
+                deleteslide(x = "slidekayu")
+                kayuada = false
+                kayu = 0
+            }
+            if (x == 3) {
+                deleteslide(x = "slideaqua")
+                aquaada = false
+                aqua = 0
+            }
+            if (x == 4) {
+                deleteslide(x = "slidekardus")
+                kardusada = false
+                kardus = 0
+            }
+            if (x == 5) {
+                kalengada = false
+                kaleng = 0
+                kayuada = false
+                kayu = 0
+                aquaada = false
+                aqua = 0
+                kardusada = false
+                kardus = 0
+                document.getElementById("strukcontainer").innerHTML = ""
+            }
+            update()
+        }
+        function deleteslide(x) {
+            const struks = document.getElementById("strukcontainer")
+            struks.removeChild(document.getElementById(x))
+        }
+        function update() {
+            totalproduk = parseInt(kardus + kayu + kaleng + aqua)
+            totalharga = parseInt((kardus * 1500) + (kayu * 5000) + (kaleng * 1250) + (aqua * 11000))
+            document.getElementById("totalbarang").innerText = String(totalproduk)
+            document.getElementById("totalstruk").innerText = "Rp." + String(totalharga)
+        }
+        function clear1() {
+            deletedetect(x=5)
+        }
+        function beli() {
+            totalproduk = parseInt(kardus + kayu + kaleng + aqua)
+            totalharga = parseInt((kardus * 1500) + (kayu * 5000) + (kaleng * 1250) + (aqua * 11000))
+            if (totalproduk != 0) {
+                document.getElementById("cartcontainer").innerHTML = '<div style="width:100%; height:70px; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h1 style="padding:10px; margin-left:530px">Terimakasih</h1></div><h4 style="margin-top:30px;"><center>Terimakasih atas pembelian anda</center></h4> <br><h4><center>anda telah membeli:</center></h4><h4><center id="totalbarangstruk"></center></h4><h4><center>dengan harga:</center></h4><h4><center id="totalhargabarangstruk"></center></h4><h5><center>Terimakasih telah menggunakan website kita sebagai sarana berbelanja <br>Jika anda ingin berbelanja lagi, maka mohon untuk refresh halaman ini. <br>Atau jika anda berkendala, atau mempunyai masukan, mohon mengunjungi page feedback. <br></center></h5><a href="feedback.html"><button style="background-color:orange; color:rgb(16, 16, 64); width:100%;"><h3>Page Feedback</h3></button></a><a href="Shop.html"><button style="background-color:rgb(26, 36, 86); color:white; width:100%;"><h3>Refresh Page</h3></button></a>'
+                document.getElementById("totalbarangstruk").innerText = String(totalproduk) + " barang"
+                document.getElementById("totalhargabarangstruk").innerText = "Rp." + String(totalharga)
+            }
+        }
+    </script>
+    <style>
+        .Background {
+            height: 1000px;
+            width: 100%;
+            background-color: rgb(255, 255, 255);
+        }
+        .Header {
+            width: 100%;
+            height: auto;
+            background-color: rgb(46, 46, 46);
+            color: white;
+            font-family: monospace;
+            position:fixed;
+        }
+        .block1 {
+            width: 100%;
+            height: auto;
+            background-color: rgb(26, 36, 86);
+        }
+        .block2 {
+            width: 100%;
+            height: auto;
+            background-color: orange;
+        }
+        .title {
+            align-self: center;
+            color: white;
+        }
+        .picture {
+            width: 100%;
+            height: auto;
+        }
+        .invis {
+            opacity:1;
+            height:auto;
+            width:auto;
+        }
+        .carousel {
+            height:600px;
+            width:600px;
+            padding:50px;
+        }
+        .navbutton {
+            background-color:rgb(37, 37, 37);
+            height:auto;
+            width:auto;
+            color:white;
+            font-family:monospace;
+            border-width:0px;
+        }
+        .vlh {
+            background-color:orange;
+            border-color:orange;
+            border-left: 1.5px solid orange;
+            float:right;
+            margin-top:50px;
+        }
+        .container {
+            background-color:rgb(20, 20, 65);
+            border: 6px solid rgb(18, 8, 39);
+            height:500px;
+            width:100px;
+        }
+        .container2 {
+            background-color:rgb(231, 231, 231);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            height:auto;
+            width:550px;
+        }
+        .logobackground {
+            background-color:rgb(29, 29, 29);
+            height:auto;
+        }
+        .normal {
+            border:3px solid black;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+        .vl {
+            border-right:3px solid orange;
+            padding-left:10px;
+            display:inline-block;
+        }
+        .normalfont {
+            color:rgb(0, 0, 0); 
+            font-family:monospace; 
+            display:inline-block;
+        }
+        .cartslide {
+            background-color:darkgray;
+            color: black;
+            width:100%;
+            height:auto;
+            margin-top:10px;
+            font-family:sans-serif;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .cartfont {
+            margin-left:20px;
+            display:inline-block;
+        }
+        .cartbutton {
+            background-color:red;
+            width:75px;
+            height:42px;
+            color: black;
+            font-family:sans-serif;
+            font-weight:bold;
+            float:right;
+            margin-left:20px;
+        }
+        .footer1 {
+            background-color:rgb(36, 36, 36);
+            color:white;
+            width:100%;
+            height:180px;
+            text-align:center;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class = "Header">
+        <div class="logobackground" style="width:400px; display:inline-block;">
+            <img src = "Logo-Web-2.png" style="width:19%; display:inline-block; margin-bottom:30px; margin-left:11.25%;">
+            <div class = "invis" style="display:inline-block; padding:30px;">
+                <h3 style="color:rgb(83, 123, 255);">Kelompok 3</h3>
+                <h3 style="color:orange">Website</h3>
+            </div>
+        </div>
+        <h1 style="display:inline-block; margin-left:250px;">Shop Page</h1>
+        <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+            <a href="feedback.html">
+                <button class="btn btn-primary navbar-btn" class="navbutton" style="width:auto; height:50px; background-color:rgb(46, 46, 46); border-radius:0px; border-color:rgb(46, 46, 46); margin-left:10px;"><h3>Feedback</h3></button>
+            </a>
+        </div>
+        <div class="vlh" style="height:50px;"></div>
+        <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+            <a href="Shop.html">
+                <button class="btn btn-primary navbar-btn" class="navbutton" style="width:100px; height:50px; background-color:rgb(46, 46, 46); border-radius:0px; border-color:rgb(46, 46, 46); margin-left:5px; margin-right:5px;"><h3>Shop</h3></button>
+            </a>
+        </div>
+        <div class="vlh" style="height:50px;"></div>
+        <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+            <a href="Website tukang loak.html">
+                <button class="btn btn-primary navbar-btn" class="navbutton" style="width:100px; height:50px; background-color:rgb(46, 46, 46); border-radius:0px; border-color:rgb(46, 46, 46); margin-right:10px;"><h3>Home</h3></button>
+            </a>
+        </div>
+    </div>
+    <div class="Background" style="padding-top:140px;">
+        <div style="background-color:rgb(69, 69, 69); width:100%; color:white;"><h3 style="padding:25px; margin-left:650px">Barang Bekas</h3></div>
+        <div class="container2" style="margin-left:100px; display:inline-block;">
+            <div style="width:100%; height:auto; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h2 style="padding:10px; margin-left:130px">Botol Aqua 1.5L</h2></div>
+            <div class="invis">
+                <img src="download.jpg" class="normal" style="float:left; margin-left:20px;">
+                <div class="vl" style="height:200px; margin:20px; margin-left:10px; display:inline-block;"></div>
+                <div class="invis" style="display:inline-block;;">
+                    <h5 class="normalfont" style="margin-left:20px; float:right;">
+                        Botol aqua bekas<br>
+                        yang steril.<br>
+                        Bisa digunakan<br>
+                        untuk berbagai<br>
+                        macam hal<br>
+                        <br>
+                        <br>
+                        Rp.11,000<br>
+                        <br>
+                    </h5>
+                </div>
+                <button onclick="aquaplus()" style="display:inline-block; width:100%; height:60px; background-color:greenyellow;" id="aqua+"><h4>Add to cart</h4></button>
+            </div>
+        </div>
+        <div class="container2" style="margin-left:220px; display:inline-block;">
+            <div style="width:100%; height:auto; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h2 style="padding:10px; margin-left:130px">Dus Kardus Bekas</h2></div>
+            <div class="invis">
+                <img src="download (1).jpg" class="normal" style="float:left; margin-left:20px; margin-bottom:40px;">
+                <div class="vl" style="height:200px; margin:20px; margin-left:10px; display:inline-block;"></div>
+                <div class="invis" style="display:inline-block;;">
+                    <h5 class="normalfont" style="margin-left:20px; float:right;">
+                        Dus Kardus Bekas<br>
+                        berkualitas.<br>
+                        Dapat digunakan<br>
+                        untuk packing<br>
+                        yang lebih<br>
+                        murah <br>
+                        <br>
+                        Rp.1,500<br>
+                        <br>
+                    </h5>
+                </div>
+                <button onclick="kardusplus()" style="display:inline-block; width:100%; height:60px; background-color:greenyellow;" id="box+"><h4>Add to cart</h4></button>
+            </div>
+        </div>
+        <br>
+        <div class="invis" style="width:100%; height:50px;"></div>
+        <br>
+        <div class="container2" style="margin-left:100px; display:inline-block;">
+            <div style="width:100%; height:auto; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h2 style="padding:10px; margin-left:80px">Limbah Kayu Bakar 1kg</h2></div>
+            <div class="invis">
+                <img src="download (2).jpg" class="normal" style="float:left; margin-left:20px;">
+                <div class="vl" style="height:200px; margin:20px; margin-left:10px; display:inline-block;"></div>
+                <div class="invis" style="display:inline-block;;">
+                    <h5 class="normalfont" style="margin-left:20px; float:right;">
+                        Limbah kayu bakar<br>
+                        yang kuat.<br>
+                        Layak digunakan<br>
+                        untuk berbagai<br>
+                        macam hal<br>
+                        <br>
+                        <br>
+                        Rp.5.000<br>
+                        <br>
+                    </h5>
+                </div>
+                <button onclick="kayuplus()" style="display:inline-block; width:100%; height:60px; background-color:greenyellow;" id="kayu+"><h4>Add to cart</h4></button>
+            </div>
+        </div>
+        <div class="container2" style="margin-left:220px; display:inline-block;">
+            <div style="width:100%; height:auto; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h2 style="padding:10px; margin-left:130px">Kaleng bekas 1pcs</h2></div>
+            <div class="invis">
+                <img src="download5.jpg" class="normal" style="float:left; margin-left:20px; margin-bottom:40px;">
+                <div class="vl" style="height:200px; margin:20px; margin-left:10px; display:inline-block;"></div>
+                <div class="invis" style="display:inline-block;;">
+                    <h5 class="normalfont" style="margin-left:20px; float:right;">
+                        Kaleng - kaleng<br>
+                        bekas. Dapat<br>
+                        digunakan untuk<br>
+                        berbagai macam<br>
+                        prakarya<br>
+                        <br>
+                        <br>
+                        Rp.1,250<br>
+                        <br>
+                    </h5>
+                </div>
+                <button onclick="kalengplus()" style="display:inline-block; width:100%; height:60px; background-color:greenyellow;" id="box+"><h4>Add to cart</h4></button>
+            </div>
+        </div>
+        <div class="container2" style="width:1325px; height:auto; margin-left:100px; margin-top:100px; background-color:rgb(130, 130, 130);" id="cartcontainer">
+            <div style="width:100%; height:70px; font-family:monospace; color:white; background-color:rgb(62, 62, 62)"><h1 style="padding:10px; margin-left:610px">Cart</h1></div>
+            <div class="invis" id="strukcontainer">
+            </div>
+            <div style="width:100%; height:70px; font-family:monospace; color:white; background-color:rgb(62, 62, 62); margin-top:70px;">
+                <h2 style="padding-top:15px; padding-left:20px; display:inline-block;">Total:</h2>
+                <h2 style="padding-top:15px; padding-left:20px; display:inline-block;" id="totalbarang">0</h2>
+                <h2 style="padding-top:15px; padding-left:20px; display:inline-block;">barang</h2>
+                <h2 style="padding-top:15px; padding-left:625px; display:inline-block;" id="totalstruk">Rp.0</h2>
+            </div>
+            <div style="width:100%; height:auto; font-family:monospace; color:white; background-color:rgb(29, 29, 29);">
+                <button style="width:50%; height:auto; font-family:monospace; color:black; background-color:red; display:inline-block;" onclick="clear1()"><h1>clear</h1></button>
+                <button style="width:49%; height:auto; font-family:monospace; color:black; background-color:greenyellow; display:inline-block;" onclick="beli()"><h1>Konfirmasi pembelian</h1></button>
+            </div>
+        </div>
+        <footer class="footer1" style="font-family:sans-serif;">
+            <h6 style="padding:20px; font-family:sans-serif">
+            Made by Kelompok 3 <br>
+            > Yohanes Christopher <br>
+            > Nicolaus Adhitya <br>
+            > Nicholas Neptuno <br>
+            > Louis Aurelio <br>
+            <br>
+            "Website Tukang Loak"
+            </h6>
+        </footer>
+    </div>
+</body>
+</html>
