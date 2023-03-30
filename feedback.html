@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function selesai() {
+            masukan = document.getElementById("inputmasukan").value
+            buttoninput = document.getElementById("textinput").innerText
+            if (masukan != "") {
+                document.getElementById("slidemasukan").innerHTML = '<h1 class="title" style="padding-top:20px;"><center>Kritik dan saran</center></h1><hr style="width:65%; align-self:center; border-color:orange; border-radius:5px;"><center><h4 style="margin-top:20px; margin-bottom:20px; color:white;">Terimakasih anda telah mengunjungi page ini. <br>page ini kita buat khusus demi menerima masukan <br>yang dapat anda ketik di textbox input dibawah berikut. <br></h4></center><center><div class="container2"><h2 style="color:white; padding-top:20px;"> Terima kasih atas masukan anda</h2> <br><h2 style="color:white; padding-bottom:20px;">Semoga website ini telah bermanfaat bagi anda.</h2><div style="display:inline-block; padding:30px; background-color:rgb(9, 9, 45); width:100%;"><img src = "Logo-Web-2.png" style="width:12%; height:auto; display:inline-block; margin-bottom:30px; margin-left:3%;"><div class = invis style="display:inline-block; padding:30px;"><h2 style="color:rgb(83, 123, 255);">Kelompok 3</h2><h2 style="color:orange">Website</h2></div></div></div></center>'
+            }
+            else {
+                document.getElementById("textinput").innerText = "Mohon mengisi textbox diatas"
+            }
+            }
+    </script>
+    <style>
+        .Background {
+            height: auto;
+            background-color: rgb(26, 36, 86);
+        }
+        .Header {
+            width: 100%;
+            height: auto;
+            background-color: rgb(14, 26, 47);
+            color: white;
+            font-family: monospace;
+            position:fixed;
+        }
+        .block1 {
+            width: 100%;
+            height: auto;
+            background-color: rgb(26, 36, 86);
+        }
+        .block2 {
+            width: 100%;
+            height: auto;
+            background-color: orange;
+        }
+        .title {
+            align-self: center;
+            color: white;
+        }
+        .picture {
+            width: 100%;
+            height: auto;
+        }
+        .invis {
+            opacity:1;
+            height:auto;
+            width:auto;
+        }
+        .carousel {
+            height:600px;
+            width:600px;
+            padding:50px;
+        }
+        .navbutton {
+            background-color:rgb(14, 26, 47);
+            height:auto;
+            width:auto;
+            color:white;
+            font-family:monospace;
+            border-width:0px;
+        }
+        .vlh {
+            background-color:orange;
+            border-color:orange;
+            border-left: 1.5px solid orange;
+            float:right;
+            margin-top:50px;
+        }
+        .backgroundimg {
+            opacity:0.7;
+            position:sticky;
+            margin-top:147px;
+            width:50%;
+            height:auto;
+        }
+        .container2 {
+            background-color:rgb(21, 22, 57);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            height:auto;
+            width:65%;
+        }
+        .footer1 {
+            background-color:rgb(36, 36, 36);
+            color:white;
+            width:100%;
+            height:180px;
+            text-align:center;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class = "Background">
+        <div class = "Header">
+            <img src = "Logo-Web-2.png" style="width:5%; height:auto; display:inline-block; margin-bottom:30px; margin-left:3%;">
+            <div class = invis style="display:inline-block; padding:30px;">
+                <h3 style="color:rgb(83, 123, 255);">Kelompok 3</h3>
+                <h3 style="color:orange">Website</h3>
+            </div>
+            <h1 style = "display:inline-block; margin-left:225px">Kritik dan saran</h1>
+            <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+                <a href="feedback.html">
+                    <button class="btn btn-primary navbar-btn" class="navbutton" style="width:auto; height:50px; background-color:rgb(14, 26, 47); border-radius:0px; border-color:rgb(14, 26, 47); margin-left:10px;"><h3>Feedback</h3></button>
+                </a>
+            </div>
+            <div class="vlh" style="height:50px;"></div>
+            <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+                <a href="Shop.html">
+                    <button class="btn btn-primary navbar-btn" class="navbutton" style="width:100px; height:50px; background-color:rgb(14, 26, 47); border-radius:0px; border-color:rgb(14, 26, 47); margin-left:5px; margin-right:5px;"><h3>Shop</h3></button>
+                </a>
+            </div>
+            <div class="vlh" style="height:50px;"></div>
+            <div class="navbar-nav ml-auto" style="float:right; margin-top:50px;">
+                <a href="Webtukangloak.html">
+                    <button class="btn btn-primary navbar-btn" class="navbutton" style="width:100px; height:50px; background-color:rgb(14, 26, 47); border-radius:0px; border-color:rgb(14, 26, 47); margin-right:10px;"><h3>Home</h3></button>
+                </a>
+            </div>
+        </div>
+        <img src = "2207_w046_n005_218b_p1_218.jpg" style="width:100%; height:auto; margin-top:150px;">
+        <div class ="block1" id ="slidemasukan">
+            <h1 class="title" style="padding-top:20px;"><center>Kritik dan saran</center></h1>
+            <hr style="width:65%; align-self:center; border-color:orange; border-radius:5px;">
+            <center><h4 style="margin-top:20px; margin-bottom:20px; color:white;">Terimakasih anda telah mengunjungi page ini. <br>
+            page ini kita buat khusus demi menerima masukan <br>
+            yang dapat anda ketik di textbox input dibawah berikut. <br>
+            </h4></center>
+            <center><textarea id="inputmasukan" style="min-width:65%; min-height:200px; font-size:larger;" placeholder="Kritik dan saran, maksimal 300 karakter" maxlength="300"></textarea>
+                <button style="background-color:orange; color:rgb(16, 16, 64); width:65%;" onclick="selesai()">
+                    <h3 id="textinput">Submit</h3>
+                </button>
+            </center>
+        </div>
+        <footer class="footer1" style="font-family:sans-serif;">
+            <h6 style="padding:20px; font-family:sans-serif">
+            Made by Kelompok 3 <br>
+            > Yohanes Christopher <br>
+            > Nicolaus Adhitya <br>
+            > Nicholas Neptuno <br>
+            > Louis Aurelio <br>
+            <br>
+            "Website Tukang Loak"
+            </h6>
+        </footer>
+</body>
+</html>
